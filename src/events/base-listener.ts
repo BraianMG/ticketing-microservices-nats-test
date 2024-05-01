@@ -41,7 +41,7 @@ export abstract class Listener<T extends Event> {
     });
   }
 
-  parseMessage(msg: Message) {
+  parseMessage(msg: Message): T['data'] {
     const data = msg.getData();
     return typeof data === 'string'
       ? JSON.parse(data)
